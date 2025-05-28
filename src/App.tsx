@@ -54,7 +54,7 @@ export const App = () => {
                 className={getLinkActive}
                 style={getLinkStyle}
               >
-                {pathname.slice(8)}
+                {pathname.replace('/people/', '')}
               </NavLink>
             )}
 

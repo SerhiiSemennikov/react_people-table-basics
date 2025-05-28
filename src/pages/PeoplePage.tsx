@@ -61,48 +61,46 @@ export const PeoplePage = () => {
 
                 <tbody>
                   {people.map(person => (
-                    <>
-                      <tr
-                        key={person.name}
-                        data-cy="person"
-                        className={classNames({
-                          'has-background-warning': slug === person.slug,
-                        })}
-                      >
-                        <td>
-                          <PersonPage person={person} />
-                        </td>
+                    <tr
+                      key={person.name}
+                      data-cy="person"
+                      className={classNames({
+                        'has-background-warning': slug === person.slug,
+                      })}
+                    >
+                      <td>
+                        <PersonPage person={person} />
+                      </td>
 
-                        <td>{person.sex}</td>
-                        <td>{person.born}</td>
-                        <td>{person.died}</td>
+                      <td>{person.sex}</td>
+                      <td>{person.born}</td>
+                      <td>{person.died}</td>
 
-                        <td>
-                          {person.motherName ? (
-                            <PersonPage
-                              person={people.find(
-                                p => p.name === person.motherName,
-                              )}
-                              nameOverride={person.motherName}
-                            />
-                          ) : (
-                            '-'
-                          )}
-                        </td>
-                        <td>
-                          {person.fatherName ? (
-                            <PersonPage
-                              person={people.find(
-                                p => p.name === person.fatherName,
-                              )}
-                              nameOverride={person.fatherName}
-                            />
-                          ) : (
-                            '-'
-                          )}
-                        </td>
-                      </tr>
-                    </>
+                      <td>
+                        {person.motherName ? (
+                          <PersonPage
+                            person={people.find(
+                              p => p.name === person.motherName,
+                            )}
+                            nameOverride={person.motherName}
+                          />
+                        ) : (
+                          '-'
+                        )}
+                      </td>
+                      <td>
+                        {person.fatherName ? (
+                          <PersonPage
+                            person={people.find(
+                              p => p.name === person.fatherName,
+                            )}
+                            nameOverride={person.fatherName}
+                          />
+                        ) : (
+                          '-'
+                        )}
+                      </td>
+                    </tr>
                   ))}
                 </tbody>
               </table>
