@@ -6,7 +6,7 @@ import { Person } from '../types/Person';
 import React from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import classNames from 'classnames';
-import { PersonPage } from './PersonPage';
+import { PersonPage as PersonLink } from './PersonPage';
 
 export const PeoplePage = () => {
   const [people, setPeople] = useState<Person[]>([]);
@@ -69,7 +69,7 @@ export const PeoplePage = () => {
                       })}
                     >
                       <td>
-                        <PersonPage person={person} />
+                        <PersonLink person={person} />
                       </td>
 
                       <td>{person.sex}</td>
@@ -78,7 +78,7 @@ export const PeoplePage = () => {
 
                       <td>
                         {person.motherName ? (
-                          <PersonPage
+                          <PersonLink
                             person={people.find(
                               p => p.name === person.motherName,
                             )}
@@ -90,7 +90,7 @@ export const PeoplePage = () => {
                       </td>
                       <td>
                         {person.fatherName ? (
-                          <PersonPage
+                          <PersonLink
                             person={people.find(
                               p => p.name === person.fatherName,
                             )}

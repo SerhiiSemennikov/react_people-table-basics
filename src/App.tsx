@@ -11,6 +11,7 @@ import {
   useLocation,
   // useParams,
   Link,
+  useParams,
 } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -27,7 +28,8 @@ const getLinkStyle = ({ isActive }: Options) => ({
 });
 
 export const App = () => {
-  const { pathname, search } = useLocation();
+  const { search } = useLocation();
+  const { slug } = useParams();
 
   return (
     <div data-cy="app">
@@ -48,13 +50,13 @@ export const App = () => {
             <NavLink to="people" className={getLinkActive} style={getLinkStyle}>
               People
             </NavLink>
-            {pathname !== '/' && (
+            {slug && (
               <NavLink
-                to={`${pathname}`}
+                to={`${slug}`}
                 className={getLinkActive}
                 style={getLinkStyle}
               >
-                {pathname.replace('/people/', '')}
+                {slug}
               </NavLink>
             )}
 

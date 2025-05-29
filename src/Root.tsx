@@ -5,6 +5,7 @@ import { App } from './App';
 import React from 'react';
 import { PeoplePage } from './pages/PeoplePage';
 import { HomePage } from './pages/HomePage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export const Root = () => (
   //<HashRouter>
@@ -20,7 +21,7 @@ export const Root = () => (
         <Route path=":slug?" element={<PeoplePage />} />
       </Route>
 
-      <Route path="*" element={<h1 className="title">Page not found</h1>} />
+      <Route path="*" element={<NotFoundPage />} />
     </Route>
   </Routes>
   //</HashRouter>
